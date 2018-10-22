@@ -1,4 +1,10 @@
 'use strict';
+// check to see if input is a string
+//if the input is a string and the first letter is a vowel, attach "yay" to the end of it
+// if the first letter is a consenant or consenant cluster
+//, i need to remove that letter(s) and add it to the end of the word and add "ay"
+
+
 
 const assert = require('assert');
 const readline = require('readline');
@@ -8,16 +14,43 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+const pigLatin=(word) => {
+  const vowels=['a','e','i','o','u'];
+  const cons = []
+  if (vowels.includes(word[0])) {
+    return word.concat("yay")}
+  const myArray = word.split("")
+  console.log(myArray);
 
-  // Your code here
+  for(let i=0; i< myArray.length; i++){
+    console.log(myArray[i], i)
+    if (vowels.includes(myArray[i])){
+      const restOfword = myArray.slice(i)
+      console.log('restofword,', restOfword)
 
+      const restOfwordPlusCons = restOfword.concat(cons)
+      console.log('restOfwordPlusCons,', restOfwordPlusCons)
+
+      const makeItAString = restOfwordPlusCons.join('')
+      console.log('makeItAString,', makeItAString)
+
+      const addAy = makeItAString.concat("ay")
+      console.log('addAy,', addAy)
+
+      return addAy
+    }
+    cons.push(myArray[i])
+    console.log(cons);
+  }
 }
+pigLatin("school");
+//this is honestly as far as could get in a day without cheating
+
 
 
 function getPrompt() {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    console.log( pigLatin(answer.trim().toLocaleLowerCase()) );
     getPrompt();
   });
 }
