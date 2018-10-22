@@ -10,8 +10,34 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  // Your code here
-
+  const pigLatin=(word) => {
+    const vowels=['a','e','i','o','u'];
+    const cons = []
+    if (vowels.includes(word[0])) {
+      return word.concat("yay")}
+    const myArray = word.split("")
+    console.log(myArray);
+    for(let i=0; i< myArray.length; i++){
+      console.log(myArray[i], i)
+      if (vowels.includes(myArray[i])){
+        const restOfword = myArray.slice(i)
+        console.log('restofword,', restOfword)
+        // Your code here
+        const restOfwordPlusCons = restOfword.concat(cons)
+        console.log('restOfwordPlusCons,', restOfwordPlusCons)
+        const makeItAString = restOfwordPlusCons.join('')
+        console.log('makeItAString,', makeItAString)
+        const addAy = makeItAString.concat("ay")
+        console.log('addAy,', addAy)
+        return addAy
+      }
+      cons.push(myArray[i])
+      console.log(cons);
+    }
+  }
+  pigLatin("school");
+  //this is honestly as far as could get in a day without cheating
+  
 }
 
 
