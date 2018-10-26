@@ -1,4 +1,20 @@
 'use strict';
+// Get input
+//Check if isValid()
+  //is stack empty?
+  //is block being moved smaller than last block on finish stack
+  //if both are yes, return true
+  // else return false
+  //if !isValid() go back to get input
+  //if move is valid moveBlock()
+// moveBlock()
+  // push block to finish stack
+  // remove from start stack
+ // are all blocks moved to a new stack?
+ //if no , get input
+  //if yes, checkForWin()  
+
+
 
 const assert = require('assert');
 const readline = require('readline');
@@ -30,8 +46,9 @@ function isLegal() {
 }
 
 function checkForWin() {
-  // Your code here
-
+  
+  
+  
 }
 
 function towersOfHanoi(startStack, endStack) {
