@@ -14,6 +14,7 @@ let board = [
 
 let playerTurn = 'X';
 
+
 function printBoard() {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
@@ -22,25 +23,51 @@ function printBoard() {
   console.log('  ---------');
   console.log('2 ' + board[2].join(' | '));
 }
-
+// function isPLayerTurn (val) {
+//   return val === playerTurn;
+// }
 function horizontalWin() {
-  // Your code here
-}
+  //checks for the 3 cases of a horizontal win for each player
+  if (board[0][0].every(isPlayerTurn) || board[0][1].every(isPlayerTurn) || board[0][2].every(isPlayerTurn)){
+    console.log(`${playerTurn} wins!`)
+    return true
+  }
+};
+
 
 function verticalWin() {
-  // Your code here
-}
+  if (board[0][0]===playerTurn && board[1][0] ===playerTurn && board[2][0] ||
+    board[0][1]===playerTurn && board[1][1] ===playerTurn && board[2][1]  ||
+    board[0][2]===playerTurn && board[1][2] ===playerTurn && board[2][2]){
+    console.log(`${playerTurn}Wins!`)
+    return true
+
+  }
+
+};
 
 function diagonalWin() {
+  if (board[0][0]===playerTurn && board[1][1] ===playerTurn && board[2][2]  ||
+  board[0][2]===playerTurn && board[1][1] ===playerTurn && board[2][0]){
+    console.log(`${playerTurn}Wins!`)
+    return true
+  }
   // Your code here
-}
+};
 
 function checkForWin() {
-  // Your code here
+  
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  if (!board[row][column].trim()) {
+    const updatedRow = board.slice(row, row+1)[0];
+
+
+    updatedRow.splice(column, 1, playerTurn);
+
+    board.splice(row, 1, updatedRow);
+  }
 }
 
 function getPrompt() {
