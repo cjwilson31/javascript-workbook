@@ -1,18 +1,18 @@
 'use strict';
 // Get input
 //Check if isValid()
-  //is stack empty?
-  //is block being moved smaller than last block on finish stack
-  //if both are yes, return true
-  // else return false
-  //if !isValid() go back to get input
-  //if move is valid moveBlock()
+//is stack empty?
+//is block being moved smaller than last block on finish stack
+//if both are yes, return true
+// else return false
+//if !isValid() go back to get input
+//if move is valid moveBlock()
 // moveBlock()
-  // push block to finish stack
-  // remove from start stack
- // are all blocks moved to a new stack?
- //if no , get input
-  //if yes, checkForWin()  
+// push block to finish stack
+// remove from start stack
+// are all blocks moved to a new stack?
+//if no , get input
+//if yes, checkForWin()  
 
 
 
@@ -35,10 +35,32 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
-  // Your code here
+function movePiece(startStack,endStack) {
+  // made copy too not mutate original stacks
+  const stacksCopy = {        
+    a:[],
+    b:[],
+    c:[]
+  }
+  // getting keys from stacks, and copying the value of each key into the copy
+  //using bracket notation to fetch key in string format
+  Object.keys(stacks).forEach(key=>{
+    stacksCopy[key] = stacks[key]
+  })
 
+  // the array with the starting numbers
+  const startingStack = stacksCopy[startStack]
+  // where the block ends up
+  const endingStack = stacksCopy[endStack]
+  // get the value of the last block , so i can move it to the ending stack
+  const currentBlock = startingStack.pop()
+  // pushing it to the ending block
+  endingStack.push(currentBlock);
+  // setting it to the variable the game cares about
+  stacks = stacksCopy
 }
+
+
 
 function isLegal() {
   // Your code here
@@ -52,8 +74,8 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  // Your code her
+  movePiece(startStack,endStack)
 }
 
 function getPrompt() {
