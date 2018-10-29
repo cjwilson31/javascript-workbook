@@ -1,7 +1,7 @@
 'use strict';
 // Get input
 //Check if isValid()
-//is stack empty?
+//is the start stack empty? (if it is , === invalid)
 //is block being moved smaller than last block on finish stack
 //if both are yes, return true
 // else return false
@@ -36,7 +36,7 @@ function printStacks() {
 }
 
 function movePiece(startStack,endStack) {
-  // made copy too not mutate original stacks
+  // made copy to not mutate original stacks
   const stacksCopy = {        
     a:[],
     b:[],
@@ -47,7 +47,6 @@ function movePiece(startStack,endStack) {
   Object.keys(stacks).forEach(key=>{
     stacksCopy[key] = stacks[key]
   })
-
   // the array with the starting numbers
   const startingStack = stacksCopy[startStack]
   // where the block ends up
@@ -58,6 +57,7 @@ function movePiece(startStack,endStack) {
   endingStack.push(currentBlock);
   // setting it to the variable the game cares about
   stacks = stacksCopy
+  
 }
 
 
@@ -68,16 +68,20 @@ function isLegal() {
 }
 
 function checkForWin() {
-  
-  
-  
+  // checks to see if stacks[c] has all of the 'blocks', if so the game is won
+
+  if (stacks['c'].length === 4 ){
+    return true}
+   
 }
 
 function towersOfHanoi(startStack, endStack) {
   // Your code her
-  movePiece(startStack,endStack)
+  movePiece(startStack,endStack);
+  if (checkForWin()) {
+    console.log("You win!!!")
+  }
 }
-
 function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
@@ -88,7 +92,6 @@ function getPrompt() {
   });
 }
 
-// Tests
 
 if (typeof describe === 'function') {
 
