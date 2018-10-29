@@ -8,7 +8,7 @@
 //if !isValid() go back to get input
 //if move is valid moveBlock()
 // moveBlock()
- // remove from start stack
+// remove from start stack
 // push block to finish stack
 // are all blocks moved to a new stack?
 //if no , get input
@@ -35,8 +35,8 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece(startStack,endStack) {
-  // made copy to not mutate original stacks
+const movePiece = (startStack,endStack) => {
+  // made  a copy of stacks so i wouldnt mutate the original stacks
   const stacksCopy = {        
     a:[],
     b:[],
@@ -44,7 +44,7 @@ function movePiece(startStack,endStack) {
   }
   // getting keys from stacks, and copying the value of each key into the copy
   //using bracket notation to fetch key in string format
-  Object.keys(stacks).forEach(key=>{
+  Object.keys(stacks).forEach( key => {
     stacksCopy[key] = stacks[key]
   })
   // the array with the starting numbers
@@ -67,22 +67,31 @@ function isLegal() {
 
 }
 
-function checkForWin() {
+const checkForWin = () => {
   // checks to see if stacks[c] has all of the 'blocks', if so the game is won
-
   if (stacks['c'].length === 4 ){
-    return true}
-   
+    return true}   
 }
 
-function towersOfHanoi(startStack, endStack) {
-  // Your code her
+const resetGame = () => {
+  // calling stack var to reset the game to its original state if game is won
+  stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
+}
+
+const towersOfHanoi = (startStack, endStack) => {
+  // calling all my functions to get this game crakalackin
   movePiece(startStack,endStack);
   if (checkForWin()) {
-    console.log("You win!!!")
+    console.log("You have conquered The Towers of Hanoi.");
+    resetGame();
   }
 }
-function getPrompt() {
+
+const getPrompt = () => {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
