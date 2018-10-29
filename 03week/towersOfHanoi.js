@@ -8,8 +8,8 @@
 //if !isValid() go back to get input
 //if move is valid moveBlock()
 // moveBlock()
+ // remove from start stack
 // push block to finish stack
-// remove from start stack
 // are all blocks moved to a new stack?
 //if no , get input
 //if yes, checkForWin()  
