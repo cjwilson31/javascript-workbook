@@ -62,9 +62,13 @@ const movePiece = (startStack,endStack) => {
 
 
 
-function isLegal() {
-  // Your code here
-
+const isLegalMove = (startStack,endStack) => {
+  
+  if (stacks['c'].length === 0 || stacks['b'].length === 0) {
+    return false;
+  } else if (endStack.length === 0) {
+    return true;
+  };
 }
 
 const checkForWin = () => {
@@ -85,6 +89,11 @@ const resetGame = () => {
 const towersOfHanoi = (startStack, endStack) => {
   // calling all my functions to get this game crakalackin
   movePiece(startStack,endStack);
+
+  if(isLegalMove()) {
+    console.log('WRONG');
+  }
+  
   if (checkForWin()) {
     console.log("You have conquered The Towers of Hanoi.");
     resetGame();
