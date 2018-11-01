@@ -41,6 +41,7 @@ const movePiece = (startStack,endStack) => {
     a:[],
     b:[],
     c:[]
+  
   }
   // getting keys from stacks, and copying the value of each key into the copy
   //using bracket notation to fetch key in string format
@@ -59,16 +60,26 @@ const movePiece = (startStack,endStack) => {
   stacks = stacksCopy
   
 }
+const  isValid =(startStack, endStack)=>{
+  // if input is a,b,or c
 
+// 
 
-
+}
 const isLegalMove = (startStack,endStack) => {
-  
-  if (stacks['c'].length === 0 || stacks['b'].length === 0) {
+  // // i cant get this to work, and i dont know whyyyyyyyy
+  if (stacks[endStack].length -1  > stacks[startStack].length -1) {
+    console.log('please enter a valid move')
     return false;
-  } else if (endStack.length === 0) {
-    return true;
-  };
+  } else {
+    return true
+  }
+//   if(stacks[startStack].length === 0){
+//     console.log('This is an empty array, choose another');
+//     return false;
+//   } else if(stacks[endStack].length === 0){
+//     return true;
+//   }
 }
 
 const checkForWin = () => {
@@ -87,13 +98,13 @@ const resetGame = () => {
 }
 
 const towersOfHanoi = (startStack, endStack) => {
-  // calling all my functions to get this game crakalackin
-  movePiece(startStack,endStack);
-
-  if(isLegalMove()) {
-    console.log('WRONG');
-  }
+  // calling all my functions to get this game workin, except not all of my functions werk
   
+  if (isLegalMove(startStack,endStack)){
+    movePiece(startStack,endStack);}
+  // if(isLegalMove(startStack,endStack)) {
+  // console.log('WRONG');
+  //  }
   if (checkForWin()) {
     console.log("You have conquered The Towers of Hanoi.");
     resetGame();
