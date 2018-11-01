@@ -63,7 +63,7 @@ const movePiece = (startStack,endStack) => {
 const  isValid =(startStack, endStack)=>{
   // if input is a,b,or c
 
-// 
+
 
 }
 const isLegalMove = (startStack,endStack) => {
@@ -114,7 +114,6 @@ const towersOfHanoi = (startStack, endStack) => {
   else if(!isLegalMove(startStack, endStack)){
     console.log('You can only put a smaller number on a larger number.')
   }
-  
   if (checkForWin()) {
     console.log("You have conquered The Towers of Hanoi.");
     resetGame();
