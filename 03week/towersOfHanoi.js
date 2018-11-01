@@ -68,18 +68,27 @@ const  isValid =(startStack, endStack)=>{
 }
 const isLegalMove = (startStack,endStack) => {
   // // i cant get this to work, and i dont know whyyyyyyyy
-  if (stacks[endStack].length -1  > stacks[startStack].length -1) {
-    console.log('please enter a valid move')
+  // just kidding, i had to make varibles to hold the length and get last index values
+  
+
+// //is block being moved smaller than last block on finish stack
+  const greater = stacks[startStack][stacks[startStack].length - 1];
+  const lesser = stacks[endStack][stacks[endStack].length - 1];
+  if (lesser < greater) {
     return false;
   } else {
-    return true
+    return true;
+    
   }
-//   if(stacks[startStack].length === 0){
-//     console.log('This is an empty array, choose another');
-//     return false;
-//   } else if(stacks[endStack].length === 0){
-//     return true;
-//   }
+   
+  //is the start stack empty? (if it is , === invalid)
+
+  // if(stacks[startStack].length == 0){
+  //   console.log('You chose an empty start stack, please choose a start stack with numbers.');
+  //   return false;
+  // } else if(stacks[endStack].length == 0){
+  //   return true;
+  // }
 }
 
 const checkForWin = () => {
@@ -102,9 +111,10 @@ const towersOfHanoi = (startStack, endStack) => {
   
   if (isLegalMove(startStack,endStack)){
     movePiece(startStack,endStack);}
-  // if(isLegalMove(startStack,endStack)) {
-  // console.log('WRONG');
-  //  }
+  else if(!isLegalMove(startStack, endStack)){
+    console.log('You can only put a smaller number on a larger number.')
+  }
+  
   if (checkForWin()) {
     console.log("You have conquered The Towers of Hanoi.");
     resetGame();
