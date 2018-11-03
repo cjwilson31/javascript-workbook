@@ -60,9 +60,22 @@ const movePiece = (startStack,endStack) => {
   stacks = stacksCopy
   
 }
-const  isValid =(startStack, endStack)=>{
+const  isValid =(startStack)=>{
   // if input is a,b,or c
 
+  const emptyStartStack = stacks[startStack][stacks[startStack].length === 0];
+  //is the start stack empty? (if it is , === invalid)
+  if (emptyStartStack) {
+    return false
+  }else {
+    return true
+  }
+  // if(stacks[startStack].length == 0){
+  //   console.log('You chose an empty start stack, please choose a start stack with numbers.');
+  //   return false;
+  // } else if(stacks[endStack].length == 0){
+  //   return true;
+  // }
 
 
 }
@@ -81,14 +94,7 @@ const isLegalMove = (startStack,endStack) => {
     
   }
    
-  //is the start stack empty? (if it is , === invalid)
-
-  // if(stacks[startStack].length == 0){
-  //   console.log('You chose an empty start stack, please choose a start stack with numbers.');
-  //   return false;
-  // } else if(stacks[endStack].length == 0){
-  //   return true;
-  // }
+  
 }
 
 const checkForWin = () => {
@@ -107,7 +113,8 @@ const resetGame = () => {
 }
 
 const towersOfHanoi = (startStack, endStack) => {
-  // calling all my functions to get this game workin, except not all of my functions werk
+  // calling all my functions to get this game workin, 
+  // except not all of my functions werk
   
   if (isLegalMove(startStack,endStack)){
     movePiece(startStack,endStack);}
