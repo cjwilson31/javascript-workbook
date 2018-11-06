@@ -28,8 +28,9 @@ function printBoard() {
 // }
 function horizontalWin() {
   //checks for the 3 cases of a horizontal win for each player
-  if (board[0][0].every(isPlayerTurn) || board[0][1].every(isPlayerTurn) || board[0][2].every(isPlayerTurn)){
-    console.log(`${playerTurn} wins!`)
+  if (board[0][0].every=== playerTurn|| board[0][1].every===playerTurn || board[0][2].every===playerTurn)
+  {
+   
     return true
   }
 };
@@ -39,7 +40,7 @@ function verticalWin() {
   if (board[0][0]===playerTurn && board[1][0] ===playerTurn && board[2][0] ||
     board[0][1]===playerTurn && board[1][1] ===playerTurn && board[2][1]  ||
     board[0][2]===playerTurn && board[1][2] ===playerTurn && board[2][2]){
-    console.log(`${playerTurn}Wins!`)
+    
     return true
 
   }
@@ -49,26 +50,36 @@ function verticalWin() {
 function diagonalWin() {
   if (board[0][0]===playerTurn && board[1][1] ===playerTurn && board[2][2]  ||
   board[0][2]===playerTurn && board[1][1] ===playerTurn && board[2][0]){
-    console.log(`${playerTurn}Wins!`)
+    
     return true
   }
   // Your code here
 };
 
 function checkForWin() {
+  if(verticalWin()){
+    return true;
+  }else if(diagonalWin()) {
+    return true;
+  }else if (horizontalWin()){
+    return true;
+  }else{
+    return false;
+  }
   
 }
 
-function ticTacToe(row, column) {
-  if (!board[row][column].trim()) {
-    const updatedRow = board.slice(row, row+1)[0];
-
-
-    updatedRow.splice(column, 1, playerTurn);
-
-    board.splice(row, 1, updatedRow);
+function ticTacToe(row, column) { 
+  if (board[row][column].trim() === ' '){
+    board[row][column]= playerTurn;
+  } 
+  if(checkForWin()){
+    console.log(" YOU WON THE GAME!!")
+  }else{
+    
   }
-}
+}  
+
 
 function getPrompt() {
   printBoard();
