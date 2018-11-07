@@ -8,9 +8,32 @@ let jobTypes = {
   commander: 'Main Ship',
   programmer: 'Any Ship!'
 };
+// whis is this.ship null?
+// test one
+class CrewMember  {
+  constructor( name, job, specialSkill, ship) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
 
-// Your code here
+}
+// test three
+class Ship {
+  constructor(name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability =  ability;
+    this.crew = [];
 
+  }
+}
+
+const mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+const hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+const crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+const crewMember2 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
 //tests
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
