@@ -2,17 +2,52 @@
 
 const assert = require('assert');
 
-function forEach(arr, callback) {
-  // Your code here
+// Create a forEach() function that takes an array of items and 
+// a function that runs the function arr.length number of times.
+
+const arr = ['arya','jon','danaerys','brianne'];
+
+const forEach = (arr, callback)=>{
+  for(let i = 0 ; i< array1.length ; i++ ){
+    callback(arr[i])
+  }
 }
 
-function map(arr, callback) {
-  // Your code here
-}
+// Create a map() function that takes an array of items and a function 
+// that returns an array with each item manipulated by that function.
 
-function filter(arr, callback) {
-  // Your code here
+const ar = [1, 2, 3, 4, 5];
+const empty = [];
+
+const map = (ar,callback)=> {
+  for(let i = 0 ; i < ar.length ; i++ ){
+    let doubled = callback(ar[i])
+    empty.push(doubled)
+  }
+  return empty
 }
+const numsDoubled = map(ar, item => item *2)
+console.log(numsDoubled)
+
+
+// Create a filter() function that takes an array of items and a 
+// function that returns an array  with only
+// the items that return true in the function.
+
+const nums = [22,33,44,55,66];
+
+const filter = (nums,callback)=>{
+  const neww = [];  
+  for(let i = 0 ; i< nums.length ; i++ ){
+    if(callback(nums[i])) {
+      neww.push(arr[i])
+    }
+  }
+  return neww
+}
+console.log(filter(nums, item => item > 70))
+// Your code here
+
 
 function some(arr, callback) {
   // Your code here
