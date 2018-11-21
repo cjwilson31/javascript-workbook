@@ -101,7 +101,13 @@ const threeWeather = (array)=> {
   });
     
 };
-    
 const weatherStates = threeWeather(states);
-    
-console.log(weatherStates)
+console.log(weatherStates);
+//find the id of the object in weather that has a min_temp of 15.915
+
+const idealTemp = weather.find((element)=> { 
+  if(element.min_temp === 15.915){
+    console.log(`id: ${element.id} has a min_temp of 15.915`)
+  } 
+});
+console.log(idealTemp);
