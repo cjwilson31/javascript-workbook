@@ -2,11 +2,11 @@ const strNums = ["1","4","1","5","9","2","6","5","3","5","8","9","7","9","3","2"
 // Given 1000 digits of PI as strings, return an array of the digits as numbers
 
 
-// const nums = strNums.map(Number);
-const nums = strNums.map((vals)=>{
-  const integer = parseInt(vals,10);
-  return integer
-})
+const nums = strNums.map(Number);
+// const nums = strNums.map((vals)=>{
+//   const integer = parseInt(vals,10);
+//   return integer
+// })
 // Find the sum of the even values
 const evens = nums.filter((val) => {
   return val % 2 === 0;
@@ -17,9 +17,12 @@ const sumEvens = evens.reduce((acc,val) => {
 console.log(sumEvens)
 
 // Find the index of the first "Austin" value (the value plus its index equals 512)
-const atxIdx = null;
+const atxIdx  = nums.findIndex((value, index) => {
+  return (value + index === 19)
+});
 
-// console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`)
+
 
 const weather = [
   { id: 5743823523151872,
