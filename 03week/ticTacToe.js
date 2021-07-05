@@ -28,11 +28,11 @@ function printBoard() {
 // }
 function horizontalWin() {
   //checks for the 3 cases of a horizontal win for each player
-  if (board[0][0].every(isPlayerTurn) || board[0][1].every(isPlayerTurn) || board[0][2].every(isPlayerTurn)){
+  if (board[0].every(PlayerTurn) || board[1].every(PlayerTurn) || board[2].every(PlayerTurn)){
     console.log(`${playerTurn} wins!`)
     return true
   }
-};
+}
 
 
 function verticalWin() {
@@ -44,7 +44,7 @@ function verticalWin() {
 
   }
 
-};
+}
 
 function diagonalWin() {
   if (board[0][0]===playerTurn && board[1][1] ===playerTurn && board[2][2]  ||
@@ -52,8 +52,8 @@ function diagonalWin() {
     console.log(`${playerTurn}Wins!`)
     return true
   }
-  // Your code here
-};
+
+}
 
 function checkForWin() {
   
